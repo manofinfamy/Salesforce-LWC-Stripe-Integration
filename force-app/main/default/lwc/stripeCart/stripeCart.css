@@ -1,0 +1,40 @@
+.product-card {
+    position: relative;
+    padding: 1.2rem;
+}
+
+.remove-item-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #706e6b; /* Subtle grey, can be adjusted to match your UI theme */
+}
+
+.remove-item-button:hover {
+    color: #c23934; /* Change color on hover for better UX */
+}
+
+.product-info {
+    flex: 1;
+    font-size: 1rem;
+    padding-top: 5px;
+}
+
+.total-cost {
+    font-size: 1.2rem;
+    color: #0070d2;
+}
+
+.checkout-container {
+    padding-top: 1rem;
+    border-top: 1px solid #d8dde6;
+}
+
+.empty-cart {
+    font-size: 1rem;
+    color: #706e6b;
+    padding: 1rem 0;
+}

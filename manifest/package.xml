@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>StripeAppController</members>
+		<members>StripeAppControllerTest</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Stripe_App_Settings__c.Cancel_Path__c</members>
+		<members>Stripe_App_Settings__c.Site_Url__c</members>
+		<members>Stripe_App_Settings__c.Success_Path__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Stripe_App_Settings__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>stripeApp</members>
+		<members>stripeCart</members>
+		<members>stripeProductList</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<types>
+		<members>stripe_credentials</members>
+		<name>NamedCredential</name>
+	</types>
+	<types>
+		<members>stripeApp</members>
+		<name>StaticResource</name>
+	</types>
+	<version>60.0</version>
+</Package>

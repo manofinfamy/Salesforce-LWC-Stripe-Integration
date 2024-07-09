@@ -1,0 +1,16 @@
+<template>
+    <div>
+        <template if:true={showProductList}>
+            <c-stripe-product-list
+                onviewcart={handleViewCart}
+                initial-cart-count={cartCount}
+                selected-products={selectedProducts}
+            >
+            </c-stripe-product-list>
+        </template>
+        <template if:false={showProductList}>
+            <c-stripe-cart oncontinueshopping={handleContinueShopping} initial-items={selectedProducts}>
+            </c-stripe-cart>
+        </template>
+    </div>
+</template>

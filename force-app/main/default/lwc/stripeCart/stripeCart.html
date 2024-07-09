@@ -1,0 +1,71 @@
+<template>
+    <lightning-card title="Your Cart" icon-name="standard:product_item_transaction">
+        <div class="slds-m-around_medium">
+            <template if:false={isCardEmpty}>
+                <div class="slds-grid slds-wrap">
+                    <template for:each={selectedProducts} for:item="item">
+                        <div
+                            key={item.id}
+                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-horizontal_small slds-m-bottom_medium"
+                        >
+                            <div class="slds-box product-card">
+                                <button
+                                    class="remove-item-button"
+                                    data-id={item.id}
+                                    onclick={removeItem}
+                                    title="Remove item"
+                                >
+                                    <lightning-icon
+                                        icon-name="utility:close"
+                                        size="x-small"
+                                        alternative-text="Remove"
+                                    ></lightning-icon>
+                                </button>
+                                <img src={item.image} alt="Product image" />
+                                <p class="product-info">{item.name} - ${item.price}</p>
+                                <lightning-input
+                                    type="number"
+                                    min="0"
+                                    label="Quantity"
+                                    value={item.quantity}
+                                    data-id={item.id}
+                                    onchange={updateQuantity}
+                                ></lightning-input>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div class="checkout-container slds-clearfix slds-p-top_medium">
+                    <h3 class="total-cost slds-float_left slds-p-horizontal_small">Total Cost: ${totalCost}</h3>
+                    <div class="slds-float_right">
+                        <lightning-button
+                            label="Checkout with Stripe"
+                            variant="brand"
+                            onclick={checkout}
+                        ></lightning-button>
+                        <lightning-button
+                            label="Continue Shopping"
+                            variant="neutral"
+                            onclick={continueShopping}
+                            class="slds-m-left_x-small"
+                        ></lightning-button>
+                    </div>
+                </div>
+            </template>
+            <template if:true={isCardEmpty}>
+                <p class="empty-cart">Your cart is empty.</p>
+                <lightning-button
+                    label="Continue Shopping"
+                    variant="neutral"
+                    onclick={continueShopping}
+                ></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>
