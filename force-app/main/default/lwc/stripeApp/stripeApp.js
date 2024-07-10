@@ -1,12 +1,12 @@
-import { LightningElement, track } from "lwc";
+import { LightningElement, track } from 'lwc';
 
 export default class StripeApp extends LightningElement {
     @track showProductList = true;
     @track selectedProducts = [];
     @track initialCardItems = [];
-    @track cartCount = 0;
+    @track cartCount = 0; 
 
-    /**
+     /**
      * Handle view cart event. Get the dispatched selectedProducts from child component (StripeProductList)
      * and hide product list.
      */
@@ -15,7 +15,7 @@ export default class StripeApp extends LightningElement {
         this.showProductList = false;
     }
 
-    /**
+     /**
      * Handle contunue shopping event. Get the dispatched selectedProducts from child component (StripeCart)
      * and show product list again.
      */

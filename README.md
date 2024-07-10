@@ -22,7 +22,7 @@ The App consists of several LWCs organized within a Lightning App Page to create
 
 1. Clone the repository to your local machine.
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/my-dao/Salesforce-LWC-Stripe-Integration.git
     ```
 2. Use Salesforce CLI to authorize your Salesforce org where you intend to deploy the app.
     ```sh

@@ -1,12 +1,7 @@
 <template>
     <lightning-card title="Products" icon-name="custom:custom14">
         <div slot="actions" class="slds-grid slds-grid_vertical-align-center actions-container">
-            <lightning-button
-                label="View Cart"
-                onclick={viewCart}
-                class="view-cart-button"
-                disabled={viewCartDisabled}
-            ></lightning-button>
+            <lightning-button label="View Cart" onclick={viewCart} class="view-cart-button" disabled={viewCartDisabled}></lightning-button>
             <span class="slds-badge cart-count-badge"> {cartCount} </span>
         </div>
         <div class="products-container slds-grid slds-wrap">

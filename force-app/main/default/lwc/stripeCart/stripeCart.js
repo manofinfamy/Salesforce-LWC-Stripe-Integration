@@ -7,7 +7,7 @@ export default class StripeCart extends LightningElement {
     isLoading = false;
     @api initialItems;
     @track selectedProducts;
-
+    
     /**
      * Calculate total cost of all selected products.
      */
@@ -15,7 +15,7 @@ export default class StripeCart extends LightningElement {
         return this.selectedProducts.reduce((total, item) => total + item.quantity * item.price, 0);
     }
 
-    /**
+     /**
      * Define a cart is empty or not.
      */
     get isCardEmpty() {
@@ -23,9 +23,9 @@ export default class StripeCart extends LightningElement {
         return false;
     }
 
-    /**
+     /**
      * Lifecycle hook that runs when the component is inserted into the DOM.
-     * Receive initial items sent from Parent component( stripeApp)
+     * Receive initial items sent from Parent component( stripeApp) 
      */
     connectedCallback() {
         this.selectedProducts = this.initialItems;
@@ -33,8 +33,8 @@ export default class StripeCart extends LightningElement {
         toastContainer.toastPosition = "top-right";
     }
 
-    /**
-     * Handle quantity change event.
+     /**
+     * Handle quantity change event.  
      */
     updateQuantity(event) {
         // Get the product ID from the dataset of the target element
@@ -43,22 +43,19 @@ export default class StripeCart extends LightningElement {
         const newQuantity = parseInt(event.target.value, 10);
 
         let itemIndex = this.selectedProducts.findIndex((i) => i.id === productId);
-        // If the item is found
+         // If the item is found
         if (itemIndex !== -1) {
-            // Create a shallow copy of the selectedProducts array
-            let newCartItems = [...this.selectedProducts];
-            // Create a new object for the item with the updated quantity and replace it in the new array
-            newCartItems[itemIndex] = {
-                ...newCartItems[itemIndex],
-                quantity: newQuantity
-            };
-            // Reassign the selectedProducts property to the new array to trigger reactivity
-            this.selectedProducts = newCartItems;
-        }
+        // Create a shallow copy of the selectedProducts array
+        let newCartItems = [...this.selectedProducts];
+        // Create a new object for the item with the updated quantity and replace it in the new array
+        newCartItems[itemIndex] = { ...newCartItems[itemIndex], quantity: newQuantity };
+        // Reassign the selectedProducts property to the new array to trigger reactivity
+        this.selectedProducts = newCartItems;
+    }
     }
 
-    /**
-     * Handle item removal event.
+     /**
+     * Handle item removal event.  
      */
     removeItem(event) {
         const productId = event.currentTarget.dataset.id;
@@ -92,14 +89,13 @@ export default class StripeCart extends LightningElement {
      * Handle continue shopping event.Dispatched updated selectedProducts to Parent component (stripeApp)
      */
     continueShopping() {
-        this.dispatchEvent(
-            new CustomEvent("continueshopping", {
-                detail: {
-                    selectedProducts: this.selectedProducts
-                }
-            })
-        );
+        this.dispatchEvent(new CustomEvent('continueshopping', {
+            detail: {
+                selectedProducts: this.selectedProducts
+            }
+        }));
     }
+    
 
     showError(error) {
         this.dispatchEvent(
