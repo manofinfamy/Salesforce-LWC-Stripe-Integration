@@ -39,8 +39,8 @@ The App consists of several LWCs organized within a Lightning App Page to create
 
 #### Update Named Credentials
 
-Update the password of `stripe_credentials`
+Update the password of `stripe_credentials` with your Stripe Account's secret key.
 
 #### Create Custom Setting
 
-Create an Org Level setting of `Stripe_App_Settings`
+Create an Org Level setting of `Stripe_App_Settings`.
